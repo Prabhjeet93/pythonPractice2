@@ -10,6 +10,7 @@ print("this"
 # new line with /n
 print("\n")
 print("we have new line")
+
 #Concatenation
 print("You are "+"awesome")
 
