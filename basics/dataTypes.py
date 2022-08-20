@@ -180,3 +180,8 @@ print(list('hello'))   # print -> ['h', 'e', 'l', 'l', 'o']
 
 print(dict([[1,2],[3,4]])) # ->{1: 2, 3: 4}
 print(dict([(3,26),(4,44)]))   #-> {3: 26, 4: 44}
+
+
+## example for the module
+def add():
+    return 3+4
