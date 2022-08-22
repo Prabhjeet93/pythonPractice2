@@ -17,6 +17,7 @@
         5. String endswith():- This method returns True if a string ends with the specified suffix. If not, it returns False.
                               Syntax -> str.endswith(suffix[, start[, end]])
                               The endswith() method returns a boolean.
+         * String startswith(): This  method returns True if a string starts with the specified prefix(string). If not, it returns False.
         6. String expandtabs():- The expandtabs() method returns a copy of string with all tab characters '\t' replaced with whitespace characters until the next multiple of tabsize parameter.
                                 Syntax :- string.expandtabs(tabsize)
 
@@ -27,7 +28,7 @@
         8. String find() :- This method returns the index of first occurrence of the substring (if found).
                             If not found, it returns -1.
                             Syntax -: str.find(sub[, start[, end]] )
-             rfind() :- This method returns the index of first occurrence of the substring (if found) from last.
+             rfind() :- This method returns the index of first occurrence of the substring (if found) from last or right.
                         similar to find but search from last.
 
         9. String format():- This method formats the given string into a nicer output in Python.
@@ -49,6 +50,18 @@
                         It joins each element of an iterable (such as list, string, and tuple) by a string separator (the string on which the join() method is called) and returns the concatenated string.
 
                         If the iterable contains any non-string values, it raises a TypeError exception.
+
+        20. String lower() :- This method converts all uppercase characters in a string into lowercase characters and returns it.
+        21. String upper() :- This method converts all lowercase characters in a string into uppercase characters and returns it.
+        22. String swapcase():- This method returns the string by converting all the characters to their opposite letter case( uppercase to lowercase and vice versa).
+        23.  String replace():-   This method replaces each matching occurrence of the old character/text in the string with the new character/text.
+                                Syntax - str.replace(old, new [, count])
+        24 - String split() :- The split() method breaks up a string at the specified separator and returns a list of strings.
+                            Syntax - str.split(separator, maxsplit)   -> separator (optional)- Delimiter at which splits occur. If not provided, the string is splitted at whitespaces.
+                           It returns a list of strings.
+        25- String splitlines():- This method splits the string at line breaks and returns a list.
+        26. String title():- This method returns a string with first letter of each word capitalized; a title cased string.
+
 
 
 
@@ -122,7 +135,7 @@ count = string.count(substring)
 print("The count is:", count)  # The count is 2
 
 
-###  5. endswith()
+###  5. endswith() and startswith()
 text = "Python is easy to learn."
 
 result = text.endswith('to learn')
@@ -163,6 +176,37 @@ print(result)
 # 'programming is' string is checked
 result = text.endswith(('is', 'an'), 0, 14)
 # prints True
+print(result)
+
+### startswith()
+message = 'Python is fun'
+# check if the message starts with Python
+print(message.startswith('Python'))  # Output: True
+
+text = "Python programming is easy."
+# start parameter: 7
+# 'programming is easy.' string is searched
+result = text.startswith('programming is', 7)
+print(result)   # True
+# start: 7, end: 18
+# 'programming' string is searched
+result = text.startswith('programming is', 7, 18)
+print(result)   # False
+result = text.startswith('program', 7, 18)
+print(result)    #True
+
+## startswith() With Tuple Prefix
+text = "programming is easy"
+result = text.startswith(('python', 'programming'))
+# prints True
+print(result)
+result = text.startswith(('is', 'easy', 'java'))
+# prints False
+print(result)
+# With start and end parameter
+# 'is easy' string is checked
+result = text.startswith(('programming', 'easy'), 12, 19)
+# prints False
 print(result)
 
 
@@ -317,3 +361,121 @@ print('s1.join(s2):', s1.join(s2))    # s1.join(s2): 1abc2abc3
 print('s2.join(s1):', s2.join(s1))   # s2.join(s1): a123b123c
 
 
+## The join() method with sets
+
+# .join() with sets
+test = {'2', '1', '3'}
+s = ', '
+print(s.join(test))   # 3,1,2
+test = {'Python', 'Java', 'Ruby'}
+s = '->->'
+print(s.join(test))   # Ruby->->Python->->Java
+
+## The join() method with dictionaries - The join() method tries to join the keys (not values) of the dictionary with the string separator.
+# .join() with dictionaries
+test = {'mat': 1, 'that': 2}
+s = '->'
+# joins the keys only
+print(s.join(test))   # mat->that
+test = {1: 'mat', 2: 'that'}
+s = ', '
+# this gives error since key isn't string -> If the key of the string is not a string, it raises a TypeError exception.
+#print(s.join(test))   # TypeError: sequence item 0: expected str instance, int found
+
+# upper() and lower() and swapcas()
+message = 'PYtHon iS fUn'
+
+# convert message to lowercase
+print(message.lower())   #Output: python is fun
+
+# convert message to upper
+print(message.upper())   # PYTHON IS FUN
+
+# convert message to upper to lower and viceversa
+print(message.swapcase())   # pyThON Is FuN
+
+
+
+# replace()
+text = 'bat ball'
+# replace b with c
+replaced_text = text.replace('b', 'c')
+print(replaced_text)  # cat call
+song = 'cold, cold heart'
+# replacing 'cold' with 'hurt'
+print(song.replace('cold', 'hurt'))  # hurt, hurt heart
+song = 'Let it be, let it be, let it be, let it be'
+# replacing only two occurences of 'let'
+print(song.replace('let', "don't let", 2))  # Let it be, don't let it be, don't let it be, let it be
+
+
+### split() method - it returns list of strings
+text= 'Love thy neighbor'
+# splits at space
+print(text.split())  #-> ['Love', 'thy', 'neighbor']
+grocery = 'Milk, Chicken, Bread'
+# splits at ','
+print(grocery.split(', '))   #-> ['Milk', 'Chicken', 'Bread']
+# Splits at ':'
+print(grocery.split(':'))   # ['Milk, Chicken, Bread']
+
+#How split() works when maxsplit is specified?
+grocery = 'Milk, Chicken, Bread, Butter'
+
+# maxsplit: 2
+print(grocery.split(', ', 2))  # ['Milk', 'Chicken', 'Bread, Butter']
+# maxsplit: 1
+print(grocery.split(', ', 1))  # ['Milk', 'Chicken, Bread, Butter']
+# maxsplit: 5
+print(grocery.split(', ', 5))  # ['Milk', 'Chicken', 'Bread', 'Butter']
+# maxsplit: 0
+print(grocery.split(', ', 0))  # ['Milk, Chicken, Bread, Butter']
+
+
+### splitlines()
+# \n is a line boundary or line break
+sentence = 'I\nlove\nPython\nProgramming.'
+# returns a list after spliting string at line breaks
+resulting_list = sentence.splitlines()
+print(resulting_list)  # Output: ['I', 'love', 'Python', 'Programming.']
+
+# multi line string
+grocery = '''Milk
+Chicken
+Bread
+Butter'''
+# returns a list after splitting the grocery string
+print(grocery.splitlines()) # ['Milk', 'Chicken', 'Bread', 'Butter']
+
+grocery = 'Milk\nChicken\nBread\rButter'
+
+# returns a list including line breaks
+resulting_list1 = grocery.splitlines(True)
+print(resulting_list1)  # ['Milk\n', 'Chicken\n', 'Bread\r', 'Butter']
+
+# returns a list without including line breaks
+resulting_list2 = grocery.splitlines(False)
+print(resulting_list2)  # ['Milk', 'Chicken', 'Bread', 'Butter']
+
+
+### title()
+text = 'My favorite number is 25.'
+print(text.title())   # My Favorite Number Is 25.
+text = '234 k3l2 *43 fun'
+print(text.title())   # 234 K3L2 *43 Fun
+#title() with apostrophes
+text = "He's an engineer, isn't he?"
+print(text.title())   # He'S An Engineer, Isn'T He?
+
+
+#Using Regex to Title Case String
+import re
+
+def titlecase(s):
+    return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
+     lambda mo: mo.group(0)[0].upper() +
+     mo.group(0)[1:].lower(),
+     s)
+
+text = "He's an engineer, isn't he?"
+print(titlecase(text))   # He's An Engineer, Isn't He?
