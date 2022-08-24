@@ -32,11 +32,14 @@
             set difference -> A - B, A.difference(B)   -> (A - B) is a set of elements that are only in A but not in B. and viceversa
             Symmetric difference -> A ^ B, A.symmetric_difference(B)  -> a set of elements in A and B but not in both (excluding the intersection).
 
+        Set Membership Test
+                We can test if an item exists in a set or not, using the in keyword.
+
         Methods:-
             Method	                  Description
-            add()	                Adds an element to the set
+            add()	                Adds an element to the set.  method doesn't return any value and returns None. add method will add in both original and copied set. if we add in any set.
             clear()	                Removes all elements from the set
-            copy()	                Returns a copy of the set
+            copy()	                Returns a copy of the set. we can use = operator also for the copy. add method will add in both original and copied set. if we add in any set.
             difference()	        Returns the difference of two or more sets as a new set
             difference_update() 	Removes all elements of another set from this set
             discard()	            Removes an element from the set if it is a member. (Do nothing if the element is not in set)
@@ -52,6 +55,24 @@
             union()	                         Returns the union of sets in a new set
             update()    	                Updates the set with the union of itself and others
 
+
+        Built-in Functions with Set:
+        Function	Description
+        all()	    Returns True if all elements of the set are true (or if the set is empty).
+        any()	    Returns True if any element of the set is true. If the set is empty, returns False.
+        enumerate()	Returns an enumerate object. It contains the index and value for all the items of the set as a pair.
+        len()	    Returns the length (the number of items) in the set.
+        max()	    Returns the largest item in the set.
+        min()	    Returns the smallest item in the set.
+        sorted()	Returns a new sorted list from elements in the set(does not sort the set itself).
+        sum()	    Returns the sum of all elements in the set.
+
+         Frozenset:
+            Frozenset is a new class that has the characteristics of a set, but its elements cannot be changed once assigned. While tuples are immutable lists, frozensets are immutable sets.
+            Sets being mutable are unhashable, so they can't be used as dictionary keys. On the other hand, frozensets are hashable and can be used as keys to a dictionary.
+            Frozensets can be created using the frozenset() function.
+            This data type supports methods like copy(), difference(), intersection(), isdisjoint(), issubset(),
+             issuperset(), symmetric_difference() and union().
 """
 
 # Different types of sets in Python
@@ -195,3 +216,55 @@ print(A ^ B)
 print(A.symmetric_difference(B))   # {1, 2, 3, 6, 7, 8}
 # use symmetric_difference function on B
 print(B.symmetric_difference(A)) # {1, 2, 3, 6, 7, 8}
+
+# Set Membership Test
+
+set1 = set('hello')
+for val in set1:
+    print(val)
+# removed duplicates
+# e
+# h
+# l
+# o
+
+print('l' in set1) # True
+print('e' not in set1)  # False
+
+
+# Frozensets
+# initialize A and B
+A = frozenset([1, 2, 3, 4])
+B = frozenset([3, 4, 5, 6])
+
+print(A.isdisjoint(B))  #False
+print(A.difference(B))  # frozenset({1, 2})
+print(A | B)   #frozenset({1, 2, 3, 4, 5, 6})
+#print(A.add(3))    #AttributeError: 'frozenset' object has no attribute 'add'
+
+
+
+# copy()
+names = {"John", "Charlie", "Marie"}
+# items of names are copied to new_names
+new_names = names.copy()
+print('Original Names: ', names)   # Original Names:  {'John', 'Charlie', 'Marie'}
+print('Copied Names: ', new_names)   # Copied Names:  {'John', 'Charlie', 'Marie'}
+
+names = {1,2,3}
+# copy set using = operator
+new_names = names
+# new_names.add(7)
+# names.add(8)
+print('Original Names: ', names)  # Original Names:  {1, 2, 3}
+print('Copied Names: ', new_names)   # Copied Names:  {1, 2, 3}
+
+# add method and = operator will add in both original and copied set. if e add in any set.
+numbers = {1, 2, 3, 4}
+new_numbers = numbers
+print('numbers: ', numbers)  # numbers:  {1, 2, 3, 4}
+# add 5 to the copied set
+numbers.add(7)
+new_numbers.add(5)
+print('numbers: ', numbers)   # numbers:  {1, 2, 3, 4, 5, 7}
+print('new_numbers: ', new_numbers)  # new_numbers:  {1, 2, 3, 4, 5, 7}
