@@ -39,6 +39,27 @@
         update([other])	Updates the dictionary with the key/value pairs from other, overwriting existing keys.
         values()	    Returns a new object of the dictionary's values
 
+            Function	Description
+            all()	    Return True if all keys of the dictionary are True (or if the dictionary is empty).
+            any()	    Return True if any key of the dictionary is true. If the dictionary is empty, return False.
+            len()	    Return the length (the number of items) in the dictionary.
+            cmp()	    Compares items of two dictionaries. (Not available in Python 3)
+            sorted()	Return a new sorted list of keys in the dictionary.
+
+    Python Dictionary Comprehension:
+        Dictionary comprehension is an elegant and concise way to create a new dictionary from an iterable in Python.
+        Dictionary comprehension consists of an expression pair (key: value) followed by a for statement inside curly braces {}.
+        # Dictionary Comprehension
+        squares = {x: x*x for x in range(6)}
+
+    Dictionary Membership Test:
+        We can test if a key is in a dictionary or not using the keyword in.
+        Note:- that the membership test is only for the keys and not for the values.
+
+    Iterating Through a Dictionary:
+        We can iterate through each key in a dictionary using a for loop.
+
+
 """
 
 # Create Dictionary using {} or dict()
@@ -115,4 +136,68 @@ for item in marks.items():
 print(list(sorted(marks.keys())))  # Output: ['English', 'Math', 'Science']
 
 
+# Python Dictionary Comprehension
+# 
+squares = {x: x*x for x in range(6)}
+print(squares)   # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
+# This code is equivalent to
+squares = {}
+for x in range(6):
+    squares[x] = x*x
+print(squares)
+
+# Dictionary Comprehension with if conditional
+odd_squares = {x: x*x for x in range(11) if x % 2 == 1}
+print(odd_squares)   # {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
+
+# Membership Test for Dictionary Keys
+squares = {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
+# Output: True
+print(1 in squares)
+# Output: True
+print(2 not in squares)
+# membership tests for key only not value
+# Output: False
+print(49 in squares)
+
+# Iterating through a Dictionary
+squares = {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
+for i in squares:
+    print(squares[i])
+
+# 1
+# 9
+# 25
+# 49
+# 81
+
+# Dictionary Built-in Functions
+squares = {0: 0, 1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
+
+# Output: False
+print(all(squares))
+# Output: True
+print(any(squares))
+# Output: 6
+print(len(squares))
+# Output: [0, 1, 3, 5, 7, 9]
+print(sorted(squares))
+
+## all() works with Python dictiona - f all keys (not values) are true or the dictionary is empty, all() returns True. Else, it returns false for all other cases..
+s = {0: 'False', 1: 'False'}
+print(all(s))
+
+s = {1: 'True', 2: 'True'}
+print(all(s))
+
+s = {1: 'True', False: 0}
+print(all(s))
+
+s = {}
+print(all(s))
+
+# 0 is False
+# '0' is True
+s = {'0': 'True'}
+print(all(s))
