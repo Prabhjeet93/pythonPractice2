@@ -44,6 +44,8 @@
 
         A list comprehension can optionally contain more for or if statements. An optional if statement can filter out items for the new list.
 
+        any() - This function returns True if any element of an iterable is True. If not, it returns False.
+
 """
 
 # create a list with mix datatypes and list inside a list
@@ -51,6 +53,11 @@ list1 = [1, 'hello', 2.3, [7,8,9]]
 
 ## Len() of the list
 print(len(list1)) #-> 4
+
+testList = []
+print(testList, 'length is', len(testList))   # [] length is 0
+testList = [1, 2, 3]
+print(testList, 'length is', len(testList))   # [1, 2, 3] length is 3
 
 # create an empty list
 list2 = []
@@ -510,5 +517,23 @@ participant_list = [
 
 sorted_list = sorted(participant_list, key=lambda item: (100-item[1], item[2]))
 print(sorted_list)   # [('Jimmy', 90, 22), ('Terence', 75, 12), ('David', 75, 20), ('Alison', 50, 18), ('John', 45, 12)]
+
+
+# any()
+# True since 1,3 and 4 (at least one) is true
+l = [1, 3, 4, 0]
+print(any(l))  # True
+
+# False since both are False
+l = [0, False]
+print(any(l))   # False
+
+# True since 5 is true
+l = [0, False, 5]
+print(any(l))  # True
+
+# False since iterable is empty
+l = []
+print(any(l))  # False
 
 

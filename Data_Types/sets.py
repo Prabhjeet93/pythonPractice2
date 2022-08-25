@@ -242,6 +242,11 @@ print(A.difference(B))  # frozenset({1, 2})
 print(A | B)   #frozenset({1, 2, 3, 4, 5, 6})
 #print(A.add(3))    #AttributeError: 'frozenset' object has no attribute 'add'
 
+testSet = {1, 2}
+# frozenSet
+frozenTestSet = frozenset(testSet)
+print(frozenTestSet, 'length is', len(frozenTestSet))  # frozenset({1, 2}) length is 2
+
 
 
 # copy()
@@ -268,3 +273,13 @@ numbers.add(7)
 new_numbers.add(5)
 print('numbers: ', numbers)   # numbers:  {1, 2, 3, 4, 5, 7}
 print('new_numbers: ', new_numbers)  # new_numbers:  {1, 2, 3, 4, 5, 7}
+
+
+# len()
+testSet = {1, 2, 3}
+print(testSet, 'length is', len(testSet))  # {1, 2, 3} length is 3
+
+# Empty Set
+testSet = set()
+print(testSet, 'length is', len(testSet))   # set() length is 0
+

@@ -61,6 +61,9 @@
                            It returns a list of strings.
         25- String splitlines():- This method splits the string at line breaks and returns a list.
         26. String title():- This method returns a string with first letter of each word capitalized; a title cased string.
+        27. any() - This function returns True if any element of an iterable is True. If not, it returns False.
+
+
 
 
 
@@ -479,3 +482,18 @@ def titlecase(s):
 
 text = "He's an engineer, isn't he?"
 print(titlecase(text))   # He's An Engineer, Isn't He?
+
+# any()
+# At east one (in fact all) elements are True
+s = "This is good"
+print(any(s))
+
+# 0 is False
+# '0' is True since its a string character
+s = '000'
+print(any(s))
+
+# False since empty iterable
+s = ''
+print(any(s))
+

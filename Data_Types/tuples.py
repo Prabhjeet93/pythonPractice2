@@ -49,6 +49,7 @@
          * Tuples that contain immutable elements can be used as a key for a dictionary. With lists, this is not possible.
          * If you have data that doesn't change, implementing it as tuple will guarantee that it remains write-protected.
 
+   len() -> to find length of the tuple or no. of items in the tuple.
 
 
 
@@ -228,4 +229,12 @@ for name in ('John', 'Kate'):
 
 # Hello John
 # Hello Kate
+
+## len()
+testTuple = (1, 2, 3)
+print(testTuple, 'length is', len(testTuple))  # (1, 2, 3) length is 3
+
+# len() with range
+testRange = range(1, 10)
+print('Length of', testRange, 'is', len(testRange))   # Length of range(1, 10) is 9
 

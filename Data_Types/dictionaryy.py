@@ -39,18 +39,21 @@
         update([other])	Updates the dictionary with the key/value pairs from other, overwriting existing keys.
         values()	    Returns a new object of the dictionary's values
 
+
             Function	Description
             all()	    Return True if all keys of the dictionary are True (or if the dictionary is empty).
             any()	    Return True if any key of the dictionary is true. If the dictionary is empty, return False.
             len()	    Return the length (the number of items) in the dictionary.
             cmp()	    Compares items of two dictionaries. (Not available in Python 3)
-            sorted()	Return a new sorted list of keys in the dictionary.
+            sorted()	Return a new sorted list of keys in the dictionary
+
 
     Python Dictionary Comprehension:
         Dictionary comprehension is an elegant and concise way to create a new dictionary from an iterable in Python.
         Dictionary comprehension consists of an expression pair (key: value) followed by a for statement inside curly braces {}.
         # Dictionary Comprehension
         squares = {x: x*x for x in range(6)}
+        syntax -> dictionary = {key: value for vars in iterable}
 
     Dictionary Membership Test:
         We can test if a key is in a dictionary or not using the keyword in.
@@ -137,7 +140,7 @@ print(list(sorted(marks.keys())))  # Output: ['English', 'Math', 'Science']
 
 
 # Python Dictionary Comprehension
-# 
+#
 squares = {x: x*x for x in range(6)}
 print(squares)   # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
@@ -150,6 +153,34 @@ print(squares)
 # Dictionary Comprehension with if conditional
 odd_squares = {x: x*x for x in range(11) if x % 2 == 1}
 print(odd_squares)   # {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
+
+#item price in dollars - Comprehension
+old_price = {'milk': 1.02, 'coffee': 2.5, 'bread': 2.5}
+dollar_to_pound = 0.76
+new_price = {item: value*dollar_to_pound for (item, value) in old_price.items()}
+print(new_price)  # {'milk': 0.7752, 'coffee': 1.9, 'bread': 1.9}
+
+# Nested Dictionary with Two Dictionary Comprehensions
+dictionary = {
+    k1: {k2: k1 * k2 for k2 in range(1, 6)} for k1 in range(2, 5)
+}
+print(dictionary)
+# {2: {1: 2, 2: 4, 3: 6, 4: 8, 5: 10},
+# 3: {1: 3, 2: 6, 3: 9, 4: 12, 5: 15},
+# 4: {1: 4, 2: 8, 3: 12, 4: 16, 5: 20}}
+# above code is equivalent to this one.
+dictionary = dict()
+for k1 in range(11, 16):
+    dictionary[k1] = {k2: k1*k2 for k2 in range(1, 6)}
+print(dictionary)
+
+# OR
+dictionary = dict()
+for k1 in range(11, 16):
+    dictionary[k1] = dict()
+    for k2 in range(1, 6):
+        dictionary[k1][k2] = k1*k2
+print(dictionary)
 
 # Membership Test for Dictionary Keys
 squares = {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
@@ -184,6 +215,12 @@ print(len(squares))
 # Output: [0, 1, 3, 5, 7, 9]
 print(sorted(squares))
 
+testDict = {1: 'one', 2: 'two'}
+print(testDict, 'length is', len(testDict))   # {1: 'one', 2: 'two'} length is 2
+
+testDict = {}
+print(testDict, 'length is', len(testDict))  # {} length is 0
+
 ## all() works with Python dictiona - f all keys (not values) are true or the dictionary is empty, all() returns True. Else, it returns false for all other cases..
 s = {0: 'False', 1: 'False'}
 print(all(s))
@@ -201,3 +238,26 @@ print(all(s))
 # '0' is True
 s = {'0': 'True'}
 print(all(s))
+
+
+# any()
+# 0 is False
+d = {0: 'False'}
+print(any(d))
+
+# 1 is True
+d = {0: 'False', 1: 'True'}
+print(any(d))
+
+# 0 and False are false
+d = {0: 'False', False: 0}
+print(any(d))
+
+# iterable is empty
+d = {}
+print(any(d))
+
+# 0 is False
+# '0' is True
+d = {'0': 'False'}
+print(any(d))

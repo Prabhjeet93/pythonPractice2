@@ -62,6 +62,10 @@
     random.random() -> any random number
     random.shulle(), random.choice()
 
+    chr() -> The chr() method converts an integer to its unicode character and returns it.
+            The chr() method returns a unicode character of the corresponding integer argument (in the range 0 to 1,114,111)
+
+
 """
 
 a = 5
@@ -169,6 +173,18 @@ random.shuffle(x)  #->  ['e', 'c', 'd', 'a', 'b']
 print(x)
 # Print random element
 print(random.random())    #-> 0.4909693331323016
+
+
+### chr()
+
+print(chr(97))  #-> a
+print(chr(65))  # A
+print(chr(1200))  # Ұ
+
+# char() errors
+# print(chr(-1000)) # ValueError: chr() arg not in range(0x110000)
+# print(chr(1114113)) # ValueError: chr() arg not in range(0x110000)
+# print(chr('Ronald'))  # TypeError: 'str' object cannot be interpreted as an integer
 
 
 
