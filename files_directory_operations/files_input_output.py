@@ -73,39 +73,39 @@
             writelines(lines)	Writes a list of lines to the file.
 
 """
-#
-# # Open a file
-# f = open("test.txt")    # open file in current directory
-# #f = open("C:/Python38/README.txt")  # specifying full path
-#
-# # open file with modes
-# f = open("test.txt")      # equivalent to 'r' or 'rt'
-# f = open("test.txt",'w')  # write in text mode
-# f = open("img.bmp",'r+b') # read and write in binary mode
-#
-# # the default encoding is platform dependent. In windows, it is cp1252 but utf-8 in Linux.
-# # Hence, when working with files in text mode, it is highly recommended to specify the encoding type.
-# f = open("test.txt", mode='r', encoding='utf-8')
-#
-#
-# # Closing Files
-# f = open("test.txt", encoding = 'utf-8')
-# # perform file operations
-# f.close()
-#
-# # This method is not entirely safe.
-# # If an exception occurs when we are performing some operation with the file, the code exits without closing the file.
-# # A safer way is to use a try...finally block.
-# try:
-#    f = open("test.txt", encoding = 'utf-8')
-#    # perform file operations
-# finally:
-#    f.close()
-#
-# # with statement
-# with open("test.txt", encoding = 'utf-8') as f:
-#     pass
-# # perform file operations
+
+# Open a file
+f = open("test.txt")    # open file in current directory
+#f = open("C:/Python38/README.txt")  # specifying full path
+
+# open file with modes
+f = open("test.txt")      # equivalent to 'r' or 'rt'
+f = open("test.txt",'w')  # write in text mode
+f = open("img.bmp",'r+b') # read and write in binary mode
+
+# the default encoding is platform dependent. In windows, it is cp1252 but utf-8 in Linux.
+# Hence, when working with files in text mode, it is highly recommended to specify the encoding type.
+f = open("test.txt", mode='r', encoding='utf-8')
+
+
+# Closing Files
+f = open("test.txt", encoding = 'utf-8')
+# perform file operations
+f.close()
+
+# This method is not entirely safe.
+# If an exception occurs when we are performing some operation with the file, the code exits without closing the file.
+# A safer way is to use a try...finally block.
+try:
+   f = open("test.txt", encoding = 'utf-8')
+   # perform file operations
+finally:
+   f.close()
+
+# with statement
+with open("test.txt", encoding = 'utf-8') as f:
+    pass
+# perform file operations
 
 # write in to file - it will create new file if not exist and thn write into it.
 with open("test2.txt", 'w', encoding='utf-8') as f:
