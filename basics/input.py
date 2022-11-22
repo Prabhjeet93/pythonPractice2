@@ -1,5 +1,5 @@
-# beautiful_number = input("tell me a beautiful number ")
-# print(beautiful_number)
+beautiful_number = input("tell me a beautiful number ")
+print(beautiful_number)
 
 for i in 'python':
     print(i)

@@ -462,7 +462,7 @@ py_tuple = ('e', 'a', 'u', 'o', 'i')
 print(sorted(py_tuple))   #-> ['a', 'e', 'i', 'o', 'u']
 
 
-## Sort in ascnding order
+## Sort in descending order
 # set
 py_set = {'e', 'a', 'u', 'o', 'i'}
 print(sorted(py_set, reverse=True))  # ['u', 'o', 'i', 'e', 'a']
