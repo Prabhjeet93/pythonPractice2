@@ -221,7 +221,7 @@ print(testDict, 'length is', len(testDict))   # {1: 'one', 2: 'two'} length is 2
 testDict = {}
 print(testDict, 'length is', len(testDict))  # {} length is 0
 
-## all() works with Python dictiona - f all keys (not values) are true or the dictionary is empty, all() returns True. Else, it returns false for all other cases..
+## all() works with Python dictionary - f all keys (not values) are true or the dictionary is empty, all() returns True. Else, it returns false for all other cases..
 s = {0: 'False', 1: 'False'}
 print(all(s))
 
